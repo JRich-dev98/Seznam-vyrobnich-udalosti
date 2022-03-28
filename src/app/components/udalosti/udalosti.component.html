@@ -1,0 +1,20 @@
+<div class="table-container table">
+  <div id="table-header" class="row">
+    <div class="id">id</div>
+    <div class="cinnost">činnost</div>
+    <div class="stroj">stroj</div>
+    <div class="jmeno">jméno</div>
+    <div class="cas-z">čas začátek</div>
+    <div class="cas-k">čas konec</div>
+    <div class="comment">komentář</div>
+    <div class="btn-container"></div>
+    <div class="btn-container"></div>
+  </div>
+  <app-udalost-item
+    class="table-item"
+    *ngFor="let event of events"
+    [event]="event"
+    (onRemoveEvent)="removeEvent(event)"
+    (onEditEvent)="editEvent(event)"
+  ></app-udalost-item>
+</div>
