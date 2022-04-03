@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Udalosti } from '../../Udalosti';
+import { UiService } from 'src/app/services/ui.service';
 
 @Component({
   selector: 'app-udalost-item',
@@ -11,7 +12,7 @@ export class UdalostItemComponent implements OnInit {
   @Output() onEditEvent: EventEmitter<Udalosti> = new EventEmitter();
   @Input() event: Udalosti;
 
-  constructor() {}
+  constructor(private uiServcie: UiService) {}
 
   ngOnInit(): void {}
 
@@ -21,5 +22,6 @@ export class UdalostItemComponent implements OnInit {
 
   editEvent(event: Udalosti) {
     this.onEditEvent.emit(event);
+    this.uiServcie.togglePopUp();
   }
 }

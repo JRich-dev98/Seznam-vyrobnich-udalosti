@@ -2,6 +2,9 @@
   margin: 0;
   padding: 0;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+body {
   background-color: rgb(0, 121, 180);
 }
 
@@ -11,6 +14,11 @@ header {
   padding-right: 5%;
   height: 15rem;
   background-color: rgb(0, 121, 180);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 30;
   color: white;
   display: flex;
   flex-direction: row;
@@ -22,8 +30,20 @@ header h1 {
   font-size: 50px;
 }
 
+#bg {
+  position: fixed;
+  top: 240px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  z-index: -1;
+}
+
 .container {
   width: 100%;
+  position: relative;
+  top: 240px;
   height: auto;
   display: flex;
   justify-content: center;
@@ -36,8 +56,8 @@ header h1 {
   padding: 8px 20px;
   border-radius: 10px;
   cursor: pointer;
-  color: black;
-  background: rgb(212, 212, 212);
+  color: white;
+  background: black;
   text-decoration: none;
   font-size: 15px;
   font-family: inherit;
@@ -51,14 +71,17 @@ header h1 {
   transform: scale(1);
 }
 .btn-container {
-  width: 110px;
+  width: 90px;
   min-width: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .data-table {
   width: 100%;
   height: 100%;
-  background-color: rgb(0, 121, 180);
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -80,22 +103,22 @@ header h1 {
 
 .table-container {
   height: 100%;
-  width: 90%;
+  width: 100%;
   background-color: white;
 }
 
 .row {
-  height: 40px;
   display: flex;
   flex-direction: row;
 }
 .row div {
-  padding: 10px;
+  padding: 9px 10px;
   border: 1px solid silver;
   background-color: white;
+  overflow: auto;
 }
 .row .btn {
-  margin-top: -10px;
+  padding: 8.5px 18px;
 }
 
 #table-header {
@@ -110,14 +133,30 @@ header h1 {
   font-weight: 600;
 }
 
+.form-section {
+  margin: 20px 0;
+}
+
+.form-section label {
+  display: block;
+  font-size: 18px;
+}
+
+.form-section input {
+  width: 90%;
+  height: 30px;
+  margin: 5px;
+  padding: 5px 7px;
+  font-size: 18px;
+}
+
 .id {
   width: 300px;
   min-width: 300px;
-  overflow: hidden;
 }
 
 .cinnost {
-  width: 800px;
+  width: 60%;
   min-width: 150px;
 }
 
@@ -127,8 +166,7 @@ header h1 {
 }
 
 .jmeno {
-  min-width: 50px;
-  width: 100px;
+  min-width: 120px;
 }
 
 .cas-z {
@@ -140,6 +178,6 @@ header h1 {
 }
 
 .comment {
-  width: 200px;
+  width: 40%;
   min-width: 70px;
 }

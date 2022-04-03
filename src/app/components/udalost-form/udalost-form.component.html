@@ -1,0 +1,83 @@
+<div *ngIf="showPopUp" class="pop-up-container">
+  <div class="pop-up-window">
+    <div class="pop-up-body">
+      <form (ngSubmit)="onSubmit()">
+        <div class="form-section">
+          <label for="cinnost">činnost *</label>
+          <input
+            type="text"
+            name="cinnost"
+            [(ngModel)]="cinnost"
+            id="cinnost"
+            placeholder="zadej cinnost"
+            required
+          />
+        </div>
+        <div class="form-section">
+          <label for="stroj">stroj *</label>
+          <input
+            type="text"
+            name="stroj"
+            [(ngModel)]="stroj"
+            id="stroj"
+            placeholder="zadej stroj"
+            required
+          />
+        </div>
+        <div class="form-section">
+          <label for="jmeno">jméno *</label>
+          <input
+            type="text"
+            name="jmeno"
+            [(ngModel)]="jmeno"
+            id="jmeno"
+            placeholder="zadej jméno"
+            required
+          />
+        </div>
+        <div class="form-section">
+          <label for="casZ">čas začátek *</label>
+          <input
+            type="text"
+            name="casZ"
+            [(ngModel)]="casZ"
+            id="cas-z"
+            placeholder="zadej dobu začátku práce"
+            required
+          />
+        </div>
+        <div class="form-section">
+          <label for="casK">čas konec *</label>
+          <input
+            type="text"
+            name="casK"
+            [(ngModel)]="casK"
+            id="cas-k"
+            placeholder="zadej dobu konce práce"
+            required
+          />
+        </div>
+        <div class="form-section">
+          <label for="komentar">komentář</label>
+          <input
+            type="text"
+            name="komentar"
+            [(ngModel)]="komentar"
+            id="komentar"
+            placeholder="zadej komentář"
+          />
+        </div>
+        <div class="button-container">
+          <input type="submit" value="přidat událost" class="btn" />
+          <app-button
+            text="zavřít bez uložení"
+            color="rgb(255, 87, 45)"
+            (btnClick)="close()"
+          ></app-button>
+          <p>* povinné pole</p>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="pop-up-background"></div>
+</div>

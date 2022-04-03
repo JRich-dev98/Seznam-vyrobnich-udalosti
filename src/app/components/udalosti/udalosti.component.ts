@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Udalosti } from '../../Udalosti';
 
 @Component({
@@ -7,7 +7,7 @@ import { Udalosti } from '../../Udalosti';
   styleUrls: ['./udalosti.component.css'],
 })
 export class UdalostiComponent implements OnInit {
-  @Input() refreshDataInput;
+  @Output() onEditEvent: EventEmitter<Udalosti> = new EventEmitter();
   public events: Udalosti[];
 
   constructor() {}
@@ -26,6 +26,6 @@ export class UdalostiComponent implements OnInit {
   }
 
   editEvent(event: Udalosti) {
-    alert('TODO edit');
+    this.onEditEvent.emit(event);
   }
 }

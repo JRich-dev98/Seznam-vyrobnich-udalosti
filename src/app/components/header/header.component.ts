@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Udalosti } from '../../Udalosti';
-import { Guid } from 'guid-typescript';
+import { UiService } from '../../services/ui.service';
 
 @Component({
   selector: 'app-header',
@@ -8,36 +7,16 @@ import { Guid } from 'guid-typescript';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-  @Output() onAddTask = new EventEmitter();
+  @Output() onAddEvent = new EventEmitter();
   @Input() title: string;
 
-  event: Udalosti = {
-    id: '',
-    event: 'vyroba veci',
-    machine: 'cnc',
-    name: 'Jakub',
-    startTime: '10:10',
-    endTime: '20:20',
-  };
-
-  constructor() {}
+  constructor(private uiService: UiService) {}
 
   ngOnInit(): void {}
 
-  addEvent() {
-    let events = [];
-    this.event.id = Guid.raw();
+  showPopUp() {
+    this.uiService.togglePopUp();
 
-    if (localStorage.getItem('Udalosti')) {
-      events = JSON.parse(localStorage.getItem('Udalosti'));
-      events = [this.event, ...events];
-    } else {
-      events = [this.event];
-    }
-    localStorage.setItem('Udalosti', JSON.stringify(events));
-
-    this.onAddTask.emit();
-
-    alert('TODO form to add event');
+    this.onAddEvent.emit();
   }
 }

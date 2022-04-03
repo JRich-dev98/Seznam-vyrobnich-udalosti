@@ -1,4 +1,9 @@
-<app-header (onAddTask)="addTask()" [title]="title"></app-header>
+<app-udalost-form (onSubmitEvent)="refreshEvents()"></app-udalost-form>
+<app-header [title]="title"></app-header>
+<div id="bg"></div>
 <div class="container">
-  <app-udalosti class="data-table"></app-udalosti>
+  <app-udalosti
+    class="data-table"
+    (onEditEvent)="editEventEmit($event)"
+  ></app-udalosti>
 </div>
